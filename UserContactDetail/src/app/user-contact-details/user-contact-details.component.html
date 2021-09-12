@@ -1,0 +1,38 @@
+<div class="page-content page-container" id="page-content">
+  <div class="padding">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="list list-row block">
+          <h3>User Lists</h3>
+          <div
+            class="list-item"
+            id="pointer"
+            data-id="19"
+            *ngFor="let data of userData; let i = index"
+          >
+            <div (click)="selectedUserChange(i)">
+              <span class="w-48 avatar gd-warning">{{
+                data.Name.charAt(0)
+              }}</span>
+            </div>
+            <div class="flex" id="pointer" (click)="selectedUserChange(i)">
+              <a class="item-author text-color" data-abc="true">{{
+                data.Name
+              }}</a>
+              <div
+                class="item-except text-muted text-sm h-1x"
+                (click)="selectedUserChange(i)"
+              >
+                {{ data.Designation }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <app-user-emails-details [selectedUserDetail]="selectedUser">
+        </app-user-emails-details>
+      </div>
+    </div>
+  </div>
+</div>
